@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="localhost:33" id="7691a04a-985c-40c5-9f0e-4872dd524d66" name="Unnamed" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$" remote-root="/home/illia/PhpstormProjects/products.dev" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
+</project>
