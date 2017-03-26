@@ -6,9 +6,12 @@
     @include('layouts.app.head')
 </head>
 <body>
+    <div class="container">
+        @include('layouts.app.navbar')
 
+        @yield('content')
+    </div>
 
-    @yield('content')
 
     @include('layouts.app.footer')
     @include('layouts.app.scripts')

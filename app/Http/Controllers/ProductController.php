@@ -18,10 +18,9 @@ class ProductController extends Controller
     public function index()
     {
 
-        $a= database_path('ss.s');
-        $product = Product::orderBy('updated_at', 'desc')->get();
+        $products = Product::orderBy('updated_at', 'desc')->get();
 
-        return view('product.index', $product);
+        return view('product.index', compact('products'));
     }
 
     /**
