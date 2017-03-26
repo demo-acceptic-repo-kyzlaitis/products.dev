@@ -13,13 +13,15 @@
                     <div class="col-sm-9">
                         {!! Form::text('product_name', null, ['class' => 'form-control', 'placeholder' => 'Enter product name', 'required']) !!}
                     </div>
+                    <div class="error error-product-name col-md-9 col-md-offset-3" ></div>
                 </div>
 
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Product price:</label>
                     <div class="col-sm-9">
-                        {!! Form::number('product_price', null, ['class' => 'form-control', 'placeholder' => 'Enter price', 'step' => 'any', 'required']) !!}
+                        {!! Form::number('product_price', null, ['class' => 'form-control', 'placeholder' => 'Enter price', 'step' => '0.01', 'min' => '0', 'required']) !!}
                     </div>
+                    <div class="error error-product-price col-md-9 col-md-offset-3"></div>
                 </div>
 
                 <div class="form-group">
@@ -27,6 +29,7 @@
                     <div class="col-sm-9">
                         {!! Form::textarea('product_desc', null, ['class' => 'form-control', 'placeholder' => 'Enter product description', 'required']) !!}
                     </div>
+                    <div class="error error-product-desc col-md-9 col-md-offset-3"></div>
                 </div>
 
                 <div class="form-group">
@@ -57,7 +60,10 @@
                         <tr>
                             <td>{{$product->product_name}}</td>
                             <td>
-                                <div class="data-holder" data-product-name="{{$product->product_name}}" data-product-price="{{$product->product_price}}" data-product-desc="{{$product->product_desc}}"></div>
+                                <div class="data-holder" data-product-name="{{$product->product_name}}"
+                                                         data-product-price="{{$product->product_price}}"
+                                                         data-product-desc="{{$product->product_desc}}"></div>
+
                                 <button class="btn btn-primary btn-xs product-details" data-toggle="tooltip" title="Show product details">
                                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show details
                                 </button>

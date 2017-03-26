@@ -13,7 +13,7 @@ $(document).ready(function () {
             type: "POST",
             data: $('#add-product-form').serialize(),
             success: function (data) {
-                successFullyAdded.show();
+
 
                 productsTable.prepend('' +
                     '<tr>' +
@@ -28,12 +28,15 @@ $(document).ready(function () {
                         '</td>' +
                     '</tr>'
                 );
+
+                successFullyAdded.show();
                 productsTable.show();
+
                 emptyMessage.hide();
             },
             error: function (response, status, error) {
-                var errors = $.parseJSON(response.responseText);
-                console.log(errors);
+
+                parseErrors($.parseJSON(response.responseText));
             },
             beforeSend: function () {
                 successFullyAdded.hide();
@@ -74,4 +77,22 @@ $(document).ready(function () {
     });
 
     $('.close').hide();
+
+    function parseErrors(parsedJson) {
+        $.each( parsedJson, function( key, value ) {
+            console.log(key);
+            if(key == 'product_name') {
+
+                $('.error-product-name').empty().append(value);
+            }
+
+            if(key == 'product_desc') {
+                $('.error-product-desc').empty().append(value);
+            }
+
+            if(key == 'product_price') {
+                $('.error-product-price').empty().append(value);
+            }
+        });
+    }
 });

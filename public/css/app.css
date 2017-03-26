@@ -7,3 +7,6 @@
 .hidden-content-table {
     display: none;
 }
+.error {
+    color: red;
+}
