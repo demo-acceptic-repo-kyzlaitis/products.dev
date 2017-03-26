@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            {!! Form::open(['url' => action('ProductController@store'), 'class' => 'form-horizontal']) !!}
+            {!! Form::open(['url' => action('ProductController@store'), 'class' => 'form-horizontal', 'id' => 'add-product-form']) !!}
                 <legend>Add product</legend>
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Product name:</label>
@@ -30,7 +30,9 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success pull-right">Add</button>
+                    <button type="submit" class="btn btn-success btn-sm pull-right">
+                        <span class="glyphicon glyphicon-plus"></span> Add product
+                    </button>
                 </div>
             {!! Form::close() !!}
         </div>
@@ -38,7 +40,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
             @if(count($products) == 0)
                 <p>Oppps! There are no products! Add some products, not a lot, just a little bit.</p>
             @else
@@ -54,7 +56,9 @@
                             <tr>
                                 <td>{{$product->product_name}}</td>
                                 <td>
-                                    <button class="btn btn-warning"></button>
+                                    <button class="btn btn-warning btn-xs product-details" data-toggle="tooltip" title="Show product details" data-product-id="{{$product->id}}">
+                                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show details
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach

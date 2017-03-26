@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
+
+    //todo flash message
     /**
      * Display a listing of the product.
      *
@@ -36,12 +38,14 @@ class ProductController extends Controller
     /**
      * Store a newly created product in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Requests\ProductStoreRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\ProductStoreRequest $request)
     {
-        //
+        $savedProduct = Product::create($request->all());
+
+        return $savedProduct->toJson();
     }
 
     /**
