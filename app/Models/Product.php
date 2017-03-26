@@ -12,8 +12,14 @@ class Product extends Model
         'product_desc',
     ];
 
+    public $hidden = [
+        'created_at',
+        'updated_at',
+        'id',
+    ];
+
     public function getProductPriceAttribute($productPrice) {
-        return number_format($productPrice);
+        return number_format(round($productPrice / 100), 2, ',', ',');
     }
 
     public function setProductPriceAttribute($productPrice) {

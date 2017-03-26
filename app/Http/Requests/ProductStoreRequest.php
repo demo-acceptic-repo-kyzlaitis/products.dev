@@ -11,8 +11,7 @@ class ProductStoreRequest extends Request
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -21,21 +20,20 @@ class ProductStoreRequest extends Request
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            'product_name' => 'required',
-            'product_desc' => 'required',
+            'product_name'  => 'required',
+            'product_desc'  => 'required',
             'product_price' => 'required|numeric',
         ];
     }
 
     public function messages() {
         return [
-            'product_name.required' => 'Enter product name',
-            'product_desc.required' => 'Enter product description',
+            'product_name.required'  => 'Enter product name',
+            'product_desc.required'  => 'Enter product description',
             'product_price.required' => 'Enter product price',
-            'product_price.numeric' => 'Product price has to be a number',
+            'product_price.numeric'  => 'Product price has to be a number',
         ];
     }
 }

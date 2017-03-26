@@ -17,8 +17,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
 
         $products = Product::orderBy('updated_at', 'desc')->get();
 
@@ -30,8 +29,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -41,55 +39,50 @@ class ProductController extends Controller
      * @param Requests\ProductStoreRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\ProductStoreRequest $request)
-    {
+    public function store(Requests\ProductStoreRequest $request) {
         $savedProduct = Product::create($request->all());
 
-        return $savedProduct->toJson();
+        return response()->json($savedProduct);
     }
 
     /**
      * Display the specified product.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
     /**
      * Show the form for editing the specified product.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
     /**
      * Update the specified product in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
     /**
      * Remove the specified product from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 }
