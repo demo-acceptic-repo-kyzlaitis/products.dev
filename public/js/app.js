@@ -33,6 +33,9 @@ $(document).ready(function () {
                 productsTable.show();
 
                 emptyMessage.hide();
+                $('.error-product-name').empty();
+                $('.error-product-desc').empty();
+                $('.error-product-price').empty();
             },
             error: function (response, status, error) {
 

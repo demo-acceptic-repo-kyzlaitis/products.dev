@@ -24,7 +24,8 @@ class ProductStoreRequest extends Request
         return [
             'product_name'  => 'required',
             'product_desc'  => 'required',
-            'product_price' => 'required|numeric',
+            'product_price' => 'required|numeric|min:0',
+
         ];
     }
 
@@ -34,6 +35,7 @@ class ProductStoreRequest extends Request
             'product_desc.required'  => 'Enter product description',
             'product_price.required' => 'Enter product price',
             'product_price.numeric'  => 'Product price has to be a number',
+            'product_price.min'      => 'Product price cannot be less than 0',
         ];
     }
 }
