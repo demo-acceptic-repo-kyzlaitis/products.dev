@@ -19,7 +19,7 @@ class Product extends Model
     ];
 
     public function getProductPriceAttribute($productPrice) {
-        return number_format(round($productPrice / 100), 2, ',', ',');
+        return number_format(round($productPrice / 100, 2), 2, ',', ',');
     }
 
     public function setProductPriceAttribute($productPrice) {

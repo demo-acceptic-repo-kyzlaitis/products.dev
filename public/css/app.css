@@ -1,3 +1,9 @@
 .hidden-get-back-button {
     display: none;
 }
+.hidden-block {
+    display: none;
+}
+.hidden-content-table {
+    display: none;
+}

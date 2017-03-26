@@ -11,21 +11,21 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Product name:</label>
                     <div class="col-sm-9">
-                        {!! Form::text('product_name', null, ['class' => 'form-control', 'placeholder' => 'Enter product name']) !!}
+                        {!! Form::text('product_name', null, ['class' => 'form-control', 'placeholder' => 'Enter product name', 'required']) !!}
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Product price:</label>
                     <div class="col-sm-9">
-                        {!! Form::number('product_price', null, ['class' => 'form-control', 'placeholder' => 'Enter price', 'step' => '0.01']) !!}
+                        {!! Form::number('product_price', null, ['class' => 'form-control', 'placeholder' => 'Enter price', 'step' => 'any', 'required']) !!}
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Product description:</label>
                     <div class="col-sm-9">
-                        {!! Form::textarea('product_desc', null, ['class' => 'form-control', 'placeholder' => 'Enter product description']) !!}
+                        {!! Form::textarea('product_desc', null, ['class' => 'form-control', 'placeholder' => 'Enter product description', 'required']) !!}
                     </div>
                 </div>
 
@@ -41,31 +41,32 @@
     <hr>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            @if(count($products) == 0)
-                <p>Oppps! There are no products! Add some products, not a lot, just a little bit.</p>
-            @else
-                <table class="table table-condensed products-table">
-                    <thead>
-                    <tr>
-                        <th>Product name</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($products as $product)
-                            <tr>
-                                <td>{{$product->product_name}}</td>
-                                <td>
-                                    <div class="data-holder" data-product-name="{{$product->product_name}}" data-product-price="{{$product->product_price}}" data-product-desc="{{$product->product_desc}}"></div>
-                                    <button class="btn btn-primary btn-xs product-details" data-toggle="tooltip" title="Show product details">
-                                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show details
-                                    </button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            @if(!$isAnyProducts)
+                <p class="empty-message">Oppps! There are no products! Add some products, not a lot, just a little bit.</p>
             @endif
+
+            <table class="table table-condensed products-table @if(!$isAnyProducts) hidden-content-table @endif">
+                <thead>
+                <tr>
+                    <th>Product name</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach($products as $product)
+                        <tr>
+                            <td>{{$product->product_name}}</td>
+                            <td>
+                                <div class="data-holder" data-product-name="{{$product->product_name}}" data-product-price="{{$product->product_price}}" data-product-desc="{{$product->product_desc}}"></div>
+                                <button class="btn btn-primary btn-xs product-details" data-toggle="tooltip" title="Show product details">
+                                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Show details
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
             <table class="table preview-product-table" style="display: none">
                 <tbody>
                     <tr>

@@ -9,11 +9,11 @@
     <div class="container">
         @include('layouts.app.navbar')
 
-        @if(Session::has('message'))
-            <div class="alert alert-success" role="alert">
-                {!! session('message') !!}}
-            </div>
-        @endif
+
+        <div class="alert alert-success hidden-block" role="alert" >
+            The product has been added successfully!
+        </div>
+
 
         @yield('content')
     </div>

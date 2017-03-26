@@ -22,7 +22,9 @@ class ProductController extends Controller
 
         $products = Product::orderBy('updated_at', 'desc')->paginate(10);
 
-        return view('product.index', compact('products'));
+        $isAnyProducts = $products->count() > 0;
+
+        return view('product.index', compact('products', 'isAnyProducts'));
     }
 
 
@@ -35,7 +37,6 @@ class ProductController extends Controller
     public function store(Requests\ProductStoreRequest $request) {
         $savedProduct = Product::create($request->all());
 
-        Session::flash('message', 'The product has been added successfully');
         return response()->json($savedProduct);
     }
 

@@ -1,16 +1,20 @@
 /**
  * Created by illia on 26.03.17.
  */
-$(document).ready(function() {
+$(document).ready(function () {
 
     var productsTable = $('.products-table');
+    var successFullyAdded = $('.hidden-block');
+    var emptyMessage = $('.empty-message');
 
-    $('#add-product-form').on('submit', function(e) {
+    $('#add-product-form').on('submit', function (e) {
         $.ajax({
             url: "/products",
-            type:"POST",
+            type: "POST",
             data: $('#add-product-form').serialize(),
-            success: function(data){
+            success: function (data) {
+                successFullyAdded.show();
+
                 productsTable.prepend('' +
                     '<tr>' +
                         '<td>' + data.product_name +'</td>' +
@@ -24,10 +28,15 @@ $(document).ready(function() {
                         '</td>' +
                     '</tr>'
                 );
-                return false;
+                productsTable.show();
+                emptyMessage.hide();
             },
-            error: function (request, status, error) {
-
+            error: function (response, status, error) {
+                var errors = $.parseJSON(response.responseText);
+                console.log(errors);
+            },
+            beforeSend: function () {
+                successFullyAdded.hide();
             }
         });
 
@@ -35,11 +44,12 @@ $(document).ready(function() {
         return false;
     });
 
+    //hide product table and show details
     $('.table-condensed').on('click', '.product-details', function (e) {
 
         var buttonContext = this;
 
-        $('.products-table').fadeOut("fast", function() {
+        $('.products-table').fadeOut("fast", function () {
             var dataHolder = $(buttonContext).prev('.data-holder');
 
             var previewTable = $('.preview-product-table');
@@ -52,14 +62,16 @@ $(document).ready(function() {
         });
     });
 
-    $('.get-back-button').on('click', function(e) {
+    //hide details and show products table
+    $('.get-back-button').on('click', function (e) {
 
         $('.hidden-get-back-button').toggle();
 
-        $('.preview-product-table').fadeOut("fast", function() {
+        $('.preview-product-table').fadeOut("fast", function () {
             $('.products-table').fadeIn();
         });
 
     });
 
+    $('.close').hide();
 });
