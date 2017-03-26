@@ -32,10 +32,8 @@ $(document).ready(function () {
                 successFullyAdded.show();
                 productsTable.show();
 
+                //hide empty message for case when there are no products in "products" table
                 emptyMessage.hide();
-                $('.error-product-name').empty();
-                $('.error-product-desc').empty();
-                $('.error-product-price').empty();
             },
             error: function (response, status, error) {
 
@@ -43,6 +41,11 @@ $(document).ready(function () {
             },
             beforeSend: function () {
                 successFullyAdded.hide();
+
+                //resets error fields
+                $('.error-product-name').empty();
+                $('.error-product-desc').empty();
+                $('.error-product-price').empty();
             }
         });
 
