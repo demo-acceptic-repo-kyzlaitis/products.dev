@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-success pull-right">Add</button>
+                    <button type="submit" class="btn btn-success pull-right">Add</button>
                 </div>
             {!! Form::close() !!}
         </div>
