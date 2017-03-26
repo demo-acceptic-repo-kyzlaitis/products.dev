@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Product name:</label>
                     <div class="col-sm-9">
-                        {!! Form::text('product_name', null, ['class' => 'form-control', 'placeholder' => 'Enter product name', 'required']) !!}
+                        {!! Form::text('product_name', null, ['class' => 'form-control product_name', 'placeholder' => 'Enter product name', 'required']) !!}
                     </div>
                     <div class="error error-product-name col-md-9 col-md-offset-3" ></div>
                 </div>
@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Product price:</label>
                     <div class="col-sm-9">
-                        {!! Form::number('product_price', null, ['class' => 'form-control', 'placeholder' => 'Enter price', 'step' => '0.01', 'min' => '0', 'required']) !!}
+                        {!! Form::number('product_price', null, ['class' => 'form-control product_price', 'placeholder' => 'Enter price', 'step' => '0.01', 'min' => '0', 'required']) !!}
                     </div>
                     <div class="error error-product-price col-md-9 col-md-offset-3"></div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Product description:</label>
                     <div class="col-sm-9">
-                        {!! Form::textarea('product_desc', null, ['class' => 'form-control', 'placeholder' => 'Enter product description', 'required']) !!}
+                        {!! Form::textarea('product_desc', null, ['class' => 'form-control product_desc', 'placeholder' => 'Enter product description', 'required']) !!}
                     </div>
                     <div class="error error-product-desc col-md-9 col-md-offset-3"></div>
                 </div>

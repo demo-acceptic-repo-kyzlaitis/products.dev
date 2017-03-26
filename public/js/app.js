@@ -31,6 +31,7 @@ $(document).ready(function () {
 
                 successFullyAdded.show();
                 productsTable.show();
+                $('#add-product-form').find('.product_name, .product_price, .product_desc').val("");
 
                 //hide empty message for case when there are no products in "products" table
                 emptyMessage.hide();
@@ -88,7 +89,6 @@ $(document).ready(function () {
         $.each( parsedJson, function( key, value ) {
             console.log(key);
             if(key == 'product_name') {
-
                 $('.error-product-name').empty().append(value);
             }
 
