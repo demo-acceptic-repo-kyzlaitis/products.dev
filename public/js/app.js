@@ -29,6 +29,7 @@ $(document).ready(function () {
                     '</tr>'
                 );
 
+
                 successFullyAdded.show();
                 productsTable.show();
                 $('#add-product-form').find('.product_name, .product_price, .product_desc').val("");
