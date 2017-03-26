@@ -14,6 +14,7 @@ Local deployment:<br/><br/>
 
 Solution for task 2
 
-The error is on the server side so I can't fix it without access to the code. But the reason is that there is no file in resource/view called opusview.blade.php
-I tried to guess
+The error is on the server side so I can't fix it without access to the code. But the reason is that there is no file in resource/views directory called opusview.blade.php
+The solutions is to add file with name opusview.blade.php to resource/views
+I tried to guess file name but I failed.
 
