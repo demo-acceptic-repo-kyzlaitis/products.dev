@@ -89,7 +89,13 @@
                 <span class="glyphicon glyphicon-share-alt"></span> Get back to products table
             </button>
         </div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-2 pull-right">
+            {!! $products->render()!!}
+
+        </div>
     </div>
 
 @endsection

@@ -9,6 +9,12 @@
     <div class="container">
         @include('layouts.app.navbar')
 
+        @if(Session::has('message'))
+            <div class="alert alert-success" role="alert">
+                {!! session('message') !!}}
+            </div>
+        @endif
+
         @yield('content')
     </div>
 
